@@ -19,9 +19,13 @@ function App() {
     setLoading(false);
   }, []);
 
+  const handleChange = (e) => {
+    console.log(e.target.value);
+  };
+
   return (
     <body className="container grid-container">
-      <section className="">
+      <section className="title">
         <h1 className="fs-800 title">Pinball Database</h1>
         <p className="ff-dm-sans intro">
           Select your favorite pinball machines and learn about the history of
@@ -30,9 +34,11 @@ function App() {
       </section>
       <section className="search flex">
         <form className="flex">
-          <select>
-            {machines?.map((machine) => (
-              <option>{machine.name}</option>
+          <select onChange={handleChange}>
+            {machines?.map((machine, id) => (
+              <option key={id} value={machine}>
+                {machine.name}
+              </option>
             ))}
           </select>
           <input type="submit" value="search" className="button-74" />

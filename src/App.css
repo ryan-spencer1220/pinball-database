@@ -91,9 +91,6 @@ body {
   color: var(--clr-white);
   line-height: 1.5;
   min-height: 100vh;
-
-  display: grid;
-  grid-template-rows: min-content 1fr;
 }
 
 /* make images easier to work with */
@@ -146,9 +143,7 @@ select {
 }
 
 .container {
-  padding-inline: 2em;
-  margin-inline: auto;
-  max-width: 80rem;
+  padding-inline: 1em;
   padding-top: 10em;
 }
 
@@ -158,11 +153,12 @@ select {
   grid-template-rows: repeat(2, 1fr);
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  /* gap: 2rem; */
+  grid-column-start: -1;
 }
 
 .title {
-  grid-column: span 6;
+  grid-column: span 4;
   font-weight: 900;
 }
 
@@ -177,9 +173,8 @@ select {
   align-items: center;
 }
 
-input {
-  width: 100%;
-  margin: 0.5rem;
+select {
+  width: 50%;
 }
 
 @media (min-width: 45em) {
