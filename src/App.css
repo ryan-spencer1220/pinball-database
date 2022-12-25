@@ -343,3 +343,12 @@ select {
     padding: 0 25px;
   }
 }
+
+.navbar {
+  background-color: var(--clr-text);
+  border-radius: 2rem;
+  padding: 1rem;
+  font-weight: 600;
+  justify-content: space-between;
+  padding-inline: 3rem;
+}
