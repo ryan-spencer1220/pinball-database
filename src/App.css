@@ -83,6 +83,12 @@ p {
   font-weight: 400;
 }
 
+a {
+  color: black;
+  font: bold;
+  text-decoration: none;
+}
+
 /* set up the body */
 body {
   font-family: var(--ff-poppins);
@@ -346,9 +352,67 @@ select {
 
 .navbar {
   background-color: var(--clr-text);
-  border-radius: 2rem;
   padding: 1rem;
   font-weight: 600;
   justify-content: space-between;
   padding-inline: 3rem;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  transition: background 0.2s linear;
+}
+
+.light-dark-mode {
+  background-color: var(--clr-white);
+  border-radius: 3rem;
+}
+
+.light-dark-mode input {
+  opacity: 0;
+}
+
+.ball {
+  color: hsl(var(--clr-black));
+  border-radius: 50%;
+}
+
+.card {
+  background-color: hsl(--clr-light);
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+form input {
+  background-color: rgb(37, 42, 52);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: smaller;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.submit {
+  background-color: var(--clr-primary);
+  border-radius: 0.5rem;
+  color: hsl(var(--clr-white));
+}
+
+.card a {
+  color: aqua;
 }
