@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import supabase from "../config/supabaseClient";
 
 const Home = () => {
   const [machines, setMachines] = useState();
@@ -23,6 +24,8 @@ const Home = () => {
     });
     setSelectedMachine(result);
   };
+
+  console.log(supabase);
 
   return (
     <div className="container grid-container">
