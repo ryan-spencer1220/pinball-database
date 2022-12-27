@@ -36,8 +36,8 @@ const Login = () => {
         <input className="submit" type="submit" name="Sign Up" value="submit" />
       </form>
       <p>
-        Have an Account?
-        <Link to="/login"> Sign In!</Link>
+        Need an Account?
+        <Link to="/signup"> Sign Up!</Link>
       </p>
     </div>
   );
