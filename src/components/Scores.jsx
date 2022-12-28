@@ -14,7 +14,6 @@ const Scores = () => {
         setError("Could Not Find Data");
       }
       if (data) {
-        console.log(data);
         setScores(data);
       }
     };

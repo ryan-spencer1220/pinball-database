@@ -1,12 +1,12 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { Link } from "react-router-dom";
+import { AppContext } from "../context";
 import axios from "axios";
-import supabase from "../config/supabaseClient";
 import JackBot from "../assets/jackbot-pinball.jpg";
 
 const Home = () => {
+  const { selectedMachine, setSelectedMachine } = useContext(AppContext);
   const [machines, setMachines] = useState();
-  const [selectedMachine, setSelectedMachine] = useState();
   const [value, setValue] = useState("");
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Home = () => {
     const result = machines.filter((obj) => {
       return obj.name.toLowerCase() === value.toLowerCase();
     });
-    setSelectedMachine(result);
+    setSelectedMachine(result[0]);
     console.log(selectedMachine);
   };
 
@@ -55,9 +55,11 @@ const Home = () => {
               onChange={onChange}
               className="border-4"
             />
-            <button className="btn" onClick={() => onSearch(value)}>
-              Search
-            </button>
+            <Link to="/results">
+              <button className="btn" onClick={() => onSearch(value)}>
+                Search
+              </button>
+            </Link>
             {machines &&
               machines
                 .filter((item) => {
