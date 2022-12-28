@@ -13,7 +13,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container mx-auto px-20 ff-poppins grid grid-cols-1">
+    <div className="container mx-auto px-20 ff-poppins grid grid-cols-1 max-w-xl">
       <div className="card shadow-xl m4-10 p-10">
         <h2 className="text-4xl p-2">Log in</h2>
         <form

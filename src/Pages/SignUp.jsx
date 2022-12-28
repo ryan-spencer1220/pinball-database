@@ -7,6 +7,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordVerification, setPasswordVerification] = useState("");
 
   const logDetails = (e) => {
     e.preventDefault();
@@ -15,7 +16,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="container mx-auto px-20 ff-poppins grid grid-cols-1">
+    <div className="container mx-auto px-20 ff-poppins grid grid-cols-1 max-w-xl">
       <div className="card shadow-xl m4-10 p-10">
         <h2 className="text-4xl p-2">Create new account</h2>
         <p>Please fill in the form to continue</p>
@@ -53,6 +54,14 @@ const SignUp = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="password"
+            className="input w-full max-w-xs"
+          />
+          <input
+            type="text"
+            name="password"
+            value={password}
+            onChange={(e) => setPasswordVerification(e.target.value)}
+            placeholder="retype password"
             className="input w-full max-w-xs"
           />
           <button
