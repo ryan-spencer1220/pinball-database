@@ -44,7 +44,9 @@ const Home = () => {
         </figure>
         <div className="card card-body block max-w-lg">
           <main>
-            <h1 className="ff-poppins card-title text-6xl">Pinball Database</h1>
+            <h1 className="font-poppins card-title text-6xl">
+              Pinball Database
+            </h1>
             <p className="ff-dm-sans intro">
               Select your favorite pinball machines and learn about the history
               of pinball! This application was created using PinballMap API.

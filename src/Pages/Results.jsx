@@ -8,9 +8,13 @@ const Results = () => {
   console.log("Context: ", selectedMachine);
 
   return (
-    <div>
+    <div className="container mx-auto px-20 text-center font-poppins">
       {/* <Scores /> */}
-      <h1 className="ff-poppins text-5xl">{selectedMachine.name}</h1>
+      <h1 className="text-8xl">{selectedMachine.name}</h1>
+      <h6>{selectedMachine.manufacturer}</h6>
+      <h6>{selectedMachine.year}</h6>
+      <Link to={{pathname: {selectedMachine.ipdb_link}}}>IPDB Data</Link>
+      <p>{selectedMachine.ipdb_link}</p>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <div className="navbar ff-poppins bg-neutral text-base-300">
+    <div className="navbar font-poppins bg-neutral text-base-300">
       <div className="flex-1">
         <Link to="/">
           <p className="btn btn-ghost normal-case text-xl">Pinball Database</p>
