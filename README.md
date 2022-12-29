@@ -1,29 +1,25 @@
-# Chess Dashboard
+# Pinball Database
 
-#### Web application utilizing the Chess.com API designed to visualize user stats
+#### Web application designed to compile information about pinball machines
 
 #### By Ryan Spencer
 
 ### _Link to GitHub Repository_
 
-- https://github.com/ryan-spencer1220/chess-dashboard
+- https://github.com/ryan-spencer1220/pinball-database
 
 ## Technologies Used
 
-- VS Code Software
-- Git/Github
-- Google Chrome Browser
-- HTML
+- React/JavaScript
+- SupaBase/PostGreSQL
 - TailwindCSS/DaisyUI
 - Markdown
--
+- VS Code Software
+- Git/Github
 
 ## Description
 
-This web application was created to help users visualize user stats from various Chess.com API endpoints. Users can search for a given Chess.com username, press enter, are redirected to the stats page. Here users can see basic stats (username, location, etc.), ratings for various time controls, and a list of their 30 most recent games. The application utilizes TailwindCSS and the DaisyUI framework.
-
-<img width="1384" alt="Screen Shot 2022-02-16 at 3 36 47 PM" src="https://user-images.githubusercontent.com/86761275/154376185-8c32a941-fc32-4421-94f7-6e53655408bc.png">
-<img width="1349" alt="Screen Shot 2022-02-16 at 3 37 27 PM" src="https://user-images.githubusercontent.com/86761275/154376216-b6488096-c21a-4d04-bdd6-436d3abe77cf.png">
+This web application was created to compile information about pinball machines in one place. Users can search for a pinball machine via the search bar. Once selected, users are directed to a page displaying information and statistics about the selected machine. This application also features authentication and allows users to log their scores for selected pinball machines.
 
 ## Setup/Installation Requirements
 
@@ -45,12 +41,11 @@ This web application was created to help users visualize user stats from various
 
 1. _You will need to run the command "npm install" in your terminal to download the appropriate node modules._
 2. _You will then need to build the project using the command "npm run build"._
-3. _Once built, you can open dist/index.html in your browser._
-4. _To run a server view of the project, you can type the command "npm start" to witness and inspect any changes you wish to make in real time._
+3. _To run a server view of the project, you can type the command "npm start" to witness and inspect any changes you wish to make in real time._
 
 ## Known Bugs
 
-- Issue with PlayerStats component, currently commented out.
+- No known bugs
 
 ### License
 
