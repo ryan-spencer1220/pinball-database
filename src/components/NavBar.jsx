@@ -22,6 +22,7 @@ const NavBar = () => {
             </Link>
           </li>
         </ul>
+        <input type="checkbox" className="toggle toggle-lg" />
       </div>
     </div>
   );

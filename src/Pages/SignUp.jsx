@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { SignUpWithPasswordCredentials } from "@supabase/supabase-js";
+import supabase from "../config/supabaseClient";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -15,10 +17,25 @@ const SignUp = () => {
     console.log(name, email, phoneNumber, password);
   };
 
+  const addNewUser = async () => {
+    const { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: password,
+      options: {
+        data: {
+          name: name,
+          phone_number: phoneNumber,
+        },
+      },
+    });
+    console.log(data);
+    console.log(error);
+  };
+
   return (
-    <div className="container mx-auto px-20 ff-poppins grid grid-cols-1 max-w-xl">
+    <div className="container mx-auto px-20 ff-poppins grid grid-cols-1 max-w-xl pt-10 text-center">
       <div className="card shadow-xl m4-10 p-10">
-        <h2 className="text-4xl p-2">Create new account</h2>
+        <h2 className="text-4xl py-2">Create new account</h2>
         <p>Please fill in the form to continue</p>
         <form
           className="grid grid-cols-1 [&>*]:my-2"
@@ -69,13 +86,17 @@ const SignUp = () => {
             type="submit"
             name="Sign Up"
             value="submit"
+            onClick={addNewUser}
           >
-            Log In
+            Sign Up
           </button>
         </form>
         <p>
           Have an Account?
-          <Link to="/login"> Sign In!</Link>
+          <Link to="/login" className="text-secondary">
+            {" "}
+            Sign In!
+          </Link>
         </p>
       </div>
     </div>

@@ -13,7 +13,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container mx-auto px-20 ff-poppins grid grid-cols-1 max-w-xl">
+    <div className="container mx-auto px-20 ff-poppins grid grid-cols-1 max-w-xl pt-10 text-center">
       <div className="card shadow-xl m4-10 p-10">
         <h2 className="text-4xl p-2">Log in</h2>
         <form
@@ -47,7 +47,10 @@ const Login = () => {
         </form>
         <p>
           Need an Account?
-          <Link to="/signup"> Sign Up!</Link>
+          <Link to="/signup" className="text-secondary">
+            {" "}
+            Sign Up!
+          </Link>
         </p>
       </div>
     </div>

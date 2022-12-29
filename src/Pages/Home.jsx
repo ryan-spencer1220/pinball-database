@@ -33,8 +33,8 @@ const Home = () => {
   };
 
   return (
-    <div className="container mx-auto px-20">
-      <div className="card card-side bg-base-100 shadow-xl">
+    <div className="container mx-auto px-20 grid h-screen place-items-center">
+      <div className="card xl:card-side bg-base-100 shadow-xl">
         <figure>
           <img
             src={JackBot}
@@ -47,7 +47,7 @@ const Home = () => {
             <h1 className="font-poppins card-title text-6xl">
               Pinball Database
             </h1>
-            <p className="ff-dm-sans intro">
+            <p className="ff-dm-sans intro py-4">
               Select your favorite pinball machines and learn about the history
               of pinball! This application was created using PinballMap API.
             </p>
@@ -58,31 +58,35 @@ const Home = () => {
               className="border-4"
             />
             <Link to="/results">
-              <button className="btn" onClick={() => onSearch(value)}>
+              <button className="btn btn-sm" onClick={() => onSearch(value)}>
                 Search
               </button>
             </Link>
-            {machines &&
-              machines
-                .filter((item) => {
-                  const machine = item.name.toLowerCase();
-                  const search = value.toLowerCase();
-                  return search && machine.startsWith(search);
-                })
-                .map((machine) => (
-                  <p
-                    key={machine.id}
-                    value={machine.name}
-                    className="hover:cursor-pointer"
-                    onClick={() => {
-                      setValue(machine.name);
-                      setSelectedMachine(machine);
-                      console.log(machine);
-                    }}
-                  >
-                    {machine.name}
-                  </p>
-                ))}
+            <ul className="menu bg-base-100 w-56 absolute">
+              {machines &&
+                machines
+                  .filter((item) => {
+                    const machine = item.name.toLowerCase();
+                    const search = value.toLowerCase();
+                    return search && machine.startsWith(search);
+                  })
+                  .map((machine) => (
+                    <Link
+                      to="/results"
+                      key={machine.id}
+                      value={machine.name}
+                      className="hover:cursor-pointer"
+                      onClick={() => {
+                        setValue(machine.name);
+                        setSelectedMachine(machine);
+                      }}
+                    >
+                      <li>
+                        <a>{machine.name}</a>
+                      </li>
+                    </Link>
+                  ))}
+            </ul>
           </main>
         </div>
       </div>
