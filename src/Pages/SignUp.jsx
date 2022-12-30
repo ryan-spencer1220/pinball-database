@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { SignUpWithPasswordCredentials } from "@supabase/supabase-js";
 import supabase from "../config/supabaseClient";
 
 const SignUp = () => {
@@ -10,6 +9,7 @@ const SignUp = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVerification, setPasswordVerification] = useState("");
+  const [error, setError] = useState("");
 
   const logDetails = (e) => {
     e.preventDefault();
@@ -21,15 +21,19 @@ const SignUp = () => {
     const { data, error } = await supabase.auth.signUp({
       email: email,
       password: password,
+      phone: phoneNumber,
       options: {
         data: {
           name: name,
-          phone_number: phoneNumber,
         },
       },
     });
-    console.log(data);
-    console.log(error);
+    if (!error) {
+      console.log("Data: ", data);
+    }
+    if (error) {
+      setError(error.message);
+    }
   };
 
   return (
@@ -99,6 +103,26 @@ const SignUp = () => {
           </Link>
         </p>
       </div>
+      {error && (
+        <div className="alert alert-error shadow-lg">
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="stroke-current flex-shrink-0 h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            <span>{error}</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

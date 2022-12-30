@@ -11,9 +11,12 @@ import NotFound from "./Pages/NotFound";
 
 function App() {
   const [selectedMachine, setSelectedMachine] = useState();
+  const [user, setUser] = useState(null);
 
   return (
-    <AppContext.Provider value={{ selectedMachine, setSelectedMachine }}>
+    <AppContext.Provider
+      value={{ selectedMachine, setSelectedMachine, user, setUser }}
+    >
       <Router>
         <NavBar />
         <Routes>

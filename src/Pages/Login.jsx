@@ -1,15 +1,36 @@
-import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import supabase from "../config/supabaseClient";
+import { useContext } from "react";
+import { AppContext } from "../context";
 
 const Login = () => {
+  const { user, setUser } = useContext(AppContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [succes, setSuccess] = useState("");
+  const [error, setError] = useState("");
 
   const logDetails = (e) => {
     e.preventDefault();
     console.log(e.target.value);
     console.log(email, password);
+  };
+
+  const loginUser = async () => {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
+    if (!error) {
+      setSuccess("You've been logged in successfully!");
+      setUser(data.user.email);
+      setEmail("");
+      setPassword("");
+    }
+    if (error) {
+      setError(error.message);
+    }
   };
 
   return (
@@ -41,6 +62,7 @@ const Login = () => {
             type="submit"
             name="Sign Up"
             value="submit"
+            onClick={loginUser}
           >
             Log In
           </button>
@@ -53,6 +75,26 @@ const Login = () => {
           </Link>
         </p>
       </div>
+      {error && (
+        <div className="alert alert-error shadow-lg">
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="stroke-current flex-shrink-0 h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            <span>{error}</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
