@@ -8,6 +8,16 @@ const Home = () => {
   const { selectedMachine, setSelectedMachine } = useContext(AppContext);
   const [machines, setMachines] = useState();
   const [value, setValue] = useState("");
+  const [scrapedData, setScrapedData] = useState("");
+
+  useEffect(() => {
+    const fetchPuppeteer = async () => {
+      const result = await axios("http://localhost:8000/message");
+      setScrapedData(result.data);
+      console.log("scraped data: ", scrapedData);
+    };
+    fetchPuppeteer();
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
