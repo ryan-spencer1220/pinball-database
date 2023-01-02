@@ -21,17 +21,17 @@ async function run() {
   // await page.pdf({ path: "example.pdf", format: "A4" });
 
   // Return all HTML
-  const html = await page.content();
-  console.log(html);
+  // const html = await page.content();
+  // console.log(html);
 
   // Return title of page
   // const title = await page.evaluate(() => document.title);
   // console.log(title);
 
   // Return al links in page
-  // const links = await page.evaluate(() =>
-  //   Array.from(document.querySelectorAll("a"), (e) => e.href)
-  // );
+  const links = await page.evaluate(() =>
+    Array.from(document.querySelectorAll("a"), (e) => e.href)
+  );
 
   // // Return all courses in page
   // const courses = await page.evaluate(() =>
